@@ -20,8 +20,8 @@ export const getAnimalFacts = async (animal) => {
   }
 }
 
-export const getAnimalImage = (animal) => {
-  const image = process.env.S3_BASE_URL + animal.file_name
-  console.log(image)
+export const getAnimalImage = (file_name) => {
+  const image = process.env.S3_BASE_URL + file_name
+  // console.log(image)
   return image
 }

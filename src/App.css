@@ -44,3 +44,13 @@ body {
 .read-the-docs {
   color: #888;
 }
+
+.animal_image {
+  width: 100px;
+  height: 100px;
+}
+
+.image_container {
+  display: flex;
+  flex-direction: column;
+}
