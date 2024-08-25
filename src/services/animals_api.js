@@ -1,4 +1,5 @@
 // import 'dotenv/config'
+// import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3'
 import axios from 'axios'
 
 export const getAnimalFacts = async (animal) => {
@@ -25,3 +26,17 @@ export const getAnimalImage = (file_name) => {
   // console.log(image)
   return image
 }
+
+// export const listBucket = async () => {
+//   const client = new S3Client({
+//     region: 'us-east-2',
+//     credentials: process.env.AWS_ACCESS_KEY_ID,
+//   })
+//   const input = {
+//     Bucket: 'animaldexbucket',
+//   }
+//   const command = new ListObjectsV2Command(input)
+//   const response = await client.send(command)
+//   console.log(response)
+// }
+// listBucket()
