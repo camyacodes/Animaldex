@@ -1,24 +1,45 @@
-import { useState } from "react";
+import { liteClient as algoliasearch } from 'algoliasearch/lite'
+import 'instantsearch.css/themes/satellite.css'
+import {
+  Hits,
+  InstantSearch,
+  SearchBox,
+  Configure,
+  useInstantSearch,
+} from 'react-instantsearch'
 
-const Search = () => {
-    const[searchValue, setSearchValue] = useState('');
-    
-    const handleSearch = (event) => {
-        const animalNames = ["the", "first", "dog"]
-        event.preventDefault() // use to prevent page refresh
-        // console.log(event.nativeEvent.data)
-        setSearchValue(event.target.value)
-        console.log(animalNames.filter(name => name.includes(searchValue)))
-    };
+import { Hit } from './Hit'
 
+const searchClient = algoliasearch(
+  'LI9OW6TMP4',
+  '7b4e41c32a69dffb85e4fdf8f4f4e6a3'
+)
+
+export const Search = () => {
+  return (
+    <InstantSearch searchClient={searchClient} indexName='animals'>
+      <Configure hitsPerPage={5} />
+      <div className='ais-InstantSearch'>
+        <SearchBox />
+        <EmptyQueryBoundary fallback={null}>
+          <Hits hitComponent={Hit} />
+        </EmptyQueryBoundary>
+      </div>
+    </InstantSearch>
+  )
+}
+
+function EmptyQueryBoundary({ children, fallback }) {
+  const { indexUiState } = useInstantSearch()
+
+  if (!indexUiState.query) {
     return (
-        <div>
-            <label htmlFor="animal_searched">Search:</label>
-            <input type="text" id="name" name="animal_searched" value={searchValue} placeholder="Search animals.."
-            onChange={handleSearch}/>
-        </div>
+      <>
+        {fallback}
+        <div hidden>{children}</div>
+      </>
     )
   }
 
-
-  export default Search
+  return children
+}
