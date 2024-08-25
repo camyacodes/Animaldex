@@ -15,7 +15,7 @@ export const getAnimalFacts = async (animal) => {
 
   try {
     const response = await axios.request(options)
-    return response.data
+    return await response.data
   } catch (error) {
     console.error(error)
   }
