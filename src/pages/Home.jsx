@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Title from '../assets/animaldex_title.png'
 // import Image from 'react-bootstrap/Image'
 import OpenDex from '../components/Buttons/OpenDex/OpenDex.jsx'
@@ -13,7 +14,9 @@ const Home = () => {
         <img src={Title} height='auto' width='350' />
       </Row>
       <Row>
-        <OpenDex />
+        <Link to={'./dex'}>
+          <OpenDex />
+        </Link>
       </Row>
       <Row>
         <StartQuest />

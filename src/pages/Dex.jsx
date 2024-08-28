@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 // import Title from '../assets/animaldex_title.png'
 import DexItem from '../components/DexItem'
-import { getAnimalImage } from '../services/animals_api'
-import animals_data from '../../animals.json'
+import { getAnimalImage, listBucketObjects } from '../services/animals_api'
+// import animals_data from '../../animals.json'
 
 const Dex = () => {
   const [searchValue, setSearchValue] = useState('')
@@ -11,11 +11,27 @@ const Dex = () => {
   const [animals, setAnimals] = useState()
 
   useEffect(() => {
-    const animalsWImages = animals_data.map((a) => {
-      const image = getAnimalImage(a.file_name)
-      return { ...a, image: image }
-    })
-    setAnimals(animalsWImages)
+    const s3Animals = async () => {
+      try {
+        const animalData = await listBucketObjects()
+        // console.log(animalData)
+        const animalsWImages = animalData.map((a) => {
+          const image = getAnimalImage(a)
+          const name = a.split('.')[0].replaceAll('_', ' ')
+          return { name: name, image: image }
+        })
+        setAnimals(animalsWImages)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    s3Animals()
+    // console.log(animalData)
+    // const animalsWImages = animalData.map((a) => {
+    //   const image = getAnimalImage(a)
+    //   return { ...a, image: image }
+    // })
+    // setAnimals(animalsWImages)
   }, [])
 
   const handleSearch = (event) => {

@@ -1,12 +1,20 @@
 // import 'dotenv/config'
-// import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3'
+import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3'
 import axios from 'axios'
+
+const client = new S3Client({
+  region: 'us-east-2',
+  credentials: {
+    accessKeyId: 'test',
+    secretAccessKey: 'test',
+  },
+})
 
 export const getAnimalFacts = async (animal) => {
   const options = {
     method: 'GET',
     url: 'https://animals-by-api-ninjas.p.rapidapi.com/v1/animals',
-    params: { name: animal.name },
+    params: { name: animal },
     headers: {
       'x-rapidapi-key': process.env.ANIMAL_API_KEY,
       'x-rapidapi-host': 'animals-by-api-ninjas.p.rapidapi.com',
@@ -15,9 +23,9 @@ export const getAnimalFacts = async (animal) => {
 
   try {
     const response = await axios.request(options)
-    return await response.data
+    return response.data[0]
   } catch (error) {
-    console.error(error)
+    console.error('Error fetching animal facts: ', error)
   }
 }
 
@@ -26,16 +34,26 @@ export const getAnimalImage = (file_name) => {
   return image
 }
 
-// export const listBucket = async () => {
-//   const client = new S3Client({
-//     region: 'us-east-2',
-//     credentials: process.env.***REMOVED***,
-//   })
-//   const input = {
-//     Bucket: 'animaldexbucket',
-//   }
-//   const command = new ListObjectsV2Command(input)
-//   const response = await client.send(command)
-//   console.log(response)
-// }
-// listBucket()
+export const listBucketObjects = async () => {
+  const command = new ListObjectsV2Command({
+    Bucket: 'animaldexbucket',
+  })
+
+  try {
+    let isTruncated = true
+
+    let contentsList
+
+    while (isTruncated) {
+      const { Contents, IsTruncated, NextContinuationToken } =
+        await client.send(command)
+      contentsList = Contents.map((c) => `${c.Key}`)
+      // contents += contentsList
+      isTruncated = IsTruncated
+      command.input.ContinuationToken = NextContinuationToken
+      return contentsList
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
