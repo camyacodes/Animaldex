@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 // import Title from '../assets/animaldex_title.png'
+import ReturnHome from '../components/Buttons/ReturnHome/ReturnHome.jsx'
 import DexItem from '../components/DexItem'
 import { getAnimalImage, listBucketObjects } from '../services/animals_api'
 // import animals_data from '../../animals.json'
@@ -48,17 +50,24 @@ const Dex = () => {
 
   return (
     <div id='dex_page'>
-      <div id='search_bar'>
-        <label htmlFor='animal_searched'>Search:</label>
-        <input
-          type='text'
-          id='name'
-          name='animal_searched'
-          value={searchValue}
-          placeholder='Search animals..'
-          onChange={handleSearch}
-        />
-      </div>
+        <div>
+          <Link to={'../'}>
+            <ReturnHome />
+          </Link>
+        </div>
+        
+        <div id='search_bar'>
+          <label htmlFor='animal_searched'>Search:</label>
+          <input
+            type='text'
+            id='name'
+            name='animal_searched'
+            value={searchValue}
+            placeholder='Search animals..'
+            onChange={handleSearch}
+          />
+        </div>
+      
       <div className='dex_container'>
         {animalsToShow ? (
           animalsToShow.map((animal, index) => (
