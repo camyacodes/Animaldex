@@ -5,8 +5,8 @@ import axios from 'axios'
 const client = new S3Client({
   region: 'us-east-2',
   credentials: {
-    accessKeyId: 'test',
-    secretAccessKey: 'test',
+    accessKeyId: '',
+    secretAccessKey: '',
   },
 })
 
