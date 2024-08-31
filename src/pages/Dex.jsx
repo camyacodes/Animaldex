@@ -48,7 +48,7 @@ const Dex = () => {
         a.name.toLowerCase().includes(searchValue.toLowerCase())
       )
 
-      // comment
+      // comment2
   return (
     <div id='dex_page'>
         <div>
