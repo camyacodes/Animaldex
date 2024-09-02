@@ -19,7 +19,9 @@ const Home = () => {
         </Link>
       </Row>
       <Row>
-        <StartQuest />
+        <Link to={'./startquest'}>
+          <StartQuest />
+        </Link>
       </Row>
     </Container>
   )
