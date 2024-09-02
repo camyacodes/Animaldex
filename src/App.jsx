@@ -12,7 +12,12 @@ function App() {
   const [isTimerActive, setIsTimerActive] = useState(false)
   const [time, setTime] = useState(0)
 
-  const [seenList, setSeenList] = useState([])
+  const [seenList, setSeenList] = useState([
+    'Armadillo',
+    'Box Turtle',
+    'Armadillo',
+    'Box Turtle',
+  ])
 
   return (
     <Router>
