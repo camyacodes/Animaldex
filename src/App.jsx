@@ -5,11 +5,15 @@ import Dex from './pages/Dex'
 import Animal from './pages/Animal'
 import StartQuest from './pages/StartQuest'
 import Quest from './pages/Quest'
+import Results from './pages/Results'
 import { useState } from 'react'
 
 function App() {
   const [isTimerActive, setIsTimerActive] = useState(false)
   const [time, setTime] = useState(0)
+
+  const [seenList, setSeenList] = useState([])
+
   return (
     <Router>
       <Routes>
@@ -33,6 +37,21 @@ function App() {
               isTimerActive={isTimerActive}
               setTime={setTime}
               time={time}
+              seenList={seenList}
+              setSeenList={setSeenList}
+            />
+          }
+        />
+        <Route
+          path='/results'
+          element={
+            <Results
+              // setIsTimerActive={setIsTimerActive}
+              // isTimerActive={isTimerActive}
+              // setTime={setTime}
+              time={time}
+              seenList={seenList}
+              setSeenList={setSeenList}
             />
           }
         />

@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import Timer from '../components/Timer'
 
 import {
   listBucketObjects,
   getAnimalImage,
-  getAnimalFacts,
+  // getAnimalFacts,
 } from '../services/animals_api'
 
-const Quest = ({ isTimerActive, setIsTimerActive, time, setTime }) => {
+const Quest = ({
+  isTimerActive,
+  setIsTimerActive,
+  time,
+  setTime,
+  seenList,
+  setSeenList,
+}) => {
   const [options, setOptions] = useState([
     { label: 'loading...', value: 'loading...' },
   ])
   const [selectedOption, setSelectedOption] = useState(null)
-  const [seenList, setSeenList] = useState([])
+  // const [seenList, setSeenList] = useState([])
   const [animalImage, setAnimalImage] = useState('')
-  const [animalFacts, setAnimalFacts] = useState('')
+  // const [animalFacts, setAnimalFacts] = useState('')
 
   useEffect(() => {
     const getOptions = async () => {
@@ -68,9 +76,12 @@ const Quest = ({ isTimerActive, setIsTimerActive, time, setTime }) => {
       >
         End Quest
       </button>
+      <Link to='/results'>
+        <button>See Results</button>
+      </Link>
       {selectedOption ? (
         <div>
-          <h2>{animalFacts?.name || selectedOption.label}</h2>
+          <h2>{selectedOption.label}</h2>
           <img src={animalImage} style={{ height: '300px', width: 'auto' }} />
           <h3>
             {/* Scientific Name: {animalFacts.taxonomy?.scientific_name || 'N/A'} */}
