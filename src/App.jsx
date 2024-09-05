@@ -12,12 +12,7 @@ function App() {
   const [isTimerActive, setIsTimerActive] = useState(false)
   const [time, setTime] = useState(0)
 
-  const [seenList, setSeenList] = useState([
-    'Armadillo',
-    'Box Turtle',
-    'Armadillo',
-    'Box Turtle',
-  ])
+  const [seenList, setSeenList] = useState([])
 
   return (
     <Router>
@@ -51,9 +46,6 @@ function App() {
           path='/results'
           element={
             <Results
-              // setIsTimerActive={setIsTimerActive}
-              // isTimerActive={isTimerActive}
-              // setTime={setTime}
               time={time}
               seenList={seenList}
               setSeenList={setSeenList}
