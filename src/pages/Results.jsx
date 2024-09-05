@@ -6,7 +6,7 @@ import { TestEmail } from '../components/TestEmail'
 // input for email to get results (nodemailer)
 // Back home
 
-const Results = ({ time, seenList, setSeenList }) => {
+const Results = ({ time, seenList }) => {
   const [seenCount, setSeenCount] = useState({})
   const [formattedTime, setFormattedTime] = useState('')
   const [score, setScore] = useState(0)
@@ -27,17 +27,19 @@ const Results = ({ time, seenList, setSeenList }) => {
     }
     formatTime()
 
-    const new_score =
+    const new_score = Math.round(
       (time * seenList.length * Object.keys(seenCount).length) / 5 +
-      seenList.length * 15
+        seenList.length * 15
+    )
 
     setScore(new_score)
   }, [seenList, time])
 
   return (
     <div>
-      <h1>Score: {score}</h1>
-      <h3>Time: {formattedTime}</h3>
+      <h1>Results</h1>
+      <h2>Score: {score}</h2>
+      <h2>Time: {formattedTime}</h2>
       {Object.keys(seenCount).map((animal, index) => (
         <p key={index}>
           {animal} x {seenCount[animal]}

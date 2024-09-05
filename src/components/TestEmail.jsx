@@ -1,10 +1,13 @@
 // import { useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const TestEmail = ({ time, score, animals }) => {
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const animalString = Object.entries(animals)
     .map(([animal, count]) => `${animal} x ${count}`) // Convert each animal and count to a string
@@ -28,15 +31,18 @@ export const TestEmail = ({ time, score, animals }) => {
       .then(
         () => {
           console.log('SUCCESS!')
+          navigate('/')
         },
         (error) => {
           console.log('FAILED...', error.text)
+          setErrorMsg(error.text)
         }
       )
   }
 
   return (
     <div>
+      {errorMsg ? <h2>{errorMsg}</h2> : <div></div>}
       <div className='field'>
         <label>Name</label>
         <input
@@ -46,6 +52,7 @@ export const TestEmail = ({ time, score, animals }) => {
           onChange={() => {
             setName(event.target.value)
           }}
+          required
         />
       </div>
       {/* <div className='field'>
@@ -68,19 +75,16 @@ export const TestEmail = ({ time, score, animals }) => {
           onChange={() => {
             setEmail(event.target.value)
           }}
+          required
         />
       </div>
       {/* <div className='field'>
         <label htmlFor='score'>score</label>
         <input type='text' name='score' id='score' />
       </div> */}
-
-      <input
-        type='submit'
-        id='button'
-        value='Send Results'
-        onClick={sendEmail}
-      />
+      <button type='submit' value='Send Results' onClick={sendEmail}>
+        Send Results
+      </button>
     </div>
   )
 }

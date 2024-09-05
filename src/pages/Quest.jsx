@@ -63,21 +63,18 @@ const Quest = ({
   const MarkAsSeen = () => {
     const newList = seenList.concat(selectedOption.label)
     setSeenList(newList)
-    console.log(newList)
   }
 
   return (
     <div>
       <Timer isTimerActive={isTimerActive} time={time} setTime={setTime} />
-      <button
+      <Link
+        to='/results'
         onClick={() => {
           setIsTimerActive(false)
         }}
       >
-        End Quest
-      </button>
-      <Link to='/results'>
-        <button>See Results</button>
+        <button>End Quest</button>
       </Link>
       {selectedOption ? (
         <div>
