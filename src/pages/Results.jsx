@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { TestEmail } from '../components/TestEmail'
 // Score x
 // time x
 // list of animals with count x
@@ -6,7 +7,6 @@ import { useEffect, useState } from 'react'
 // Back home
 
 const Results = ({ time, seenList, setSeenList }) => {
-  // console.log(time)
   const [seenCount, setSeenCount] = useState({})
   const [formattedTime, setFormattedTime] = useState('')
   const [score, setScore] = useState(0)
@@ -28,7 +28,8 @@ const Results = ({ time, seenList, setSeenList }) => {
     formatTime()
 
     const new_score =
-      (1800 * seenList.length * Object.keys(seenCount).length) / 5
+      (time * seenList.length * Object.keys(seenCount).length) / 5 +
+      seenList.length * 15
 
     setScore(new_score)
   }, [seenList, time])
@@ -42,6 +43,7 @@ const Results = ({ time, seenList, setSeenList }) => {
           {animal} x {seenCount[animal]}
         </p>
       ))}
+      <TestEmail time={formattedTime} score={score} animals={seenCount} />
     </div>
   )
 }
