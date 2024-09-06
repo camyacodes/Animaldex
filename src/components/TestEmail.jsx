@@ -55,22 +55,11 @@ export const TestEmail = ({ time, score, animals }) => {
           required
         />
       </div>
-      {/* <div className='field'>
-        <label htmlFor='time'>time</label>
-        <input type='text' name='time' id='time' />
-      </div> */}
       <div className='field'>
-        {/* <label htmlFor='animals'>animals</label>
-        <input
-          type='text'
-          name='animals'
-          id='animals'
-          style={{ height: '100px' }}
-        /> */}
         <br />
         <label>Email</label>
         <input
-          type='email'
+          type='text'
           name='user_email'
           onChange={() => {
             setEmail(event.target.value)
@@ -78,11 +67,12 @@ export const TestEmail = ({ time, score, animals }) => {
           required
         />
       </div>
-      {/* <div className='field'>
-        <label htmlFor='score'>score</label>
-        <input type='text' name='score' id='score' />
-      </div> */}
-      <button type='submit' value='Send Results' onClick={sendEmail}>
+      <button
+        type='submit'
+        value='Send Results'
+        onClick={sendEmail}
+        style={{ margin: '20px' }}
+      >
         Send Results
       </button>
     </div>
