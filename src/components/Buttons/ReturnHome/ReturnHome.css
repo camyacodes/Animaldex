@@ -1,10 +1,3 @@
-.returnHome {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  button:hover {
-    color: antiquewhite !important;
-  }
+button:hover {
+  color: white !important;
+}

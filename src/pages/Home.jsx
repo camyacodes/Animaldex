@@ -4,26 +4,31 @@ import Title from '../assets/animaldex_title.png'
 import OpenDex from '../components/Buttons/OpenDex/OpenDex.jsx'
 import StartQuest from '../components/Buttons/StartQuest/StartQuest.jsx'
 import './Home.css'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
+// import div from 'react-bootstrap/div'
+// import div from 'react-bootstrap/div'
+// import div from 'react-bootstrap/div'
 
 const Home = () => {
   return (
-    <Container>
-      <Row>
+    <div>
+      <div>
         <img src={Title} height='auto' width='350' />
-      </Row>
-      <Row>
+      </div>
+      <div>
         <Link to={'./dex'}>
           <OpenDex />
         </Link>
-      </Row>
-      <Row>
+      </div>
+      <div>
         <Link to={'./startquest'}>
           <StartQuest />
         </Link>
-      </Row>
-    </Container>
+      </div>
+      <div>
+        <div>1 of 1</div>
+        <div>1 of 1</div>
+      </div>
+    </div>
   )
 }
 

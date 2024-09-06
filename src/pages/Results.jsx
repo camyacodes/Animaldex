@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react'
 import { TestEmail } from '../components/TestEmail'
-// Score x
-// time x
-// list of animals with count x
-// input for email to get results (nodemailer)
-// Back home
+import ReturnHome from '../components/Buttons/ReturnHome/ReturnHome'
+import { Link } from 'react-router-dom'
 
 const Results = ({ time, seenList }) => {
   const [seenCount, setSeenCount] = useState({})
@@ -28,8 +25,9 @@ const Results = ({ time, seenList }) => {
     formatTime()
 
     const new_score = Math.round(
-      (time * seenList.length * Object.keys(seenCount).length) / 5 +
-        seenList.length * 15
+      seenList.length * 40 + // Base score for animals seen
+        Object.keys(seenCount).length * 70 + // Bonus for unique animals seen
+        time * 0.75 // Increment score based on time
     )
 
     setScore(new_score)
@@ -46,6 +44,9 @@ const Results = ({ time, seenList }) => {
         </p>
       ))}
       <TestEmail time={formattedTime} score={score} animals={seenCount} />
+      <Link to={'/'}>
+        <ReturnHome />
+      </Link>
     </div>
   )
 }

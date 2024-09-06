@@ -67,15 +67,15 @@ const Quest = ({
 
   return (
     <div>
-      <Timer isTimerActive={isTimerActive} time={time} setTime={setTime} />
       <Link
         to='/results'
         onClick={() => {
           setIsTimerActive(false)
         }}
       >
-        <button>End Quest</button>
+        <button style={{ marginTop: '30px' }}>End Quest</button>
       </Link>
+      <Timer isTimerActive={isTimerActive} time={time} setTime={setTime} />
       {selectedOption ? (
         <div>
           <h2>{selectedOption.label}</h2>
@@ -83,12 +83,15 @@ const Quest = ({
           <h3>
             {/* Scientific Name: {animalFacts.taxonomy?.scientific_name || 'N/A'} */}
           </h3>
-          <button onClick={MarkAsSeen}>Mark As Seen</button>
+          <button onClick={MarkAsSeen} style={{ marginBottom: '30px' }}>
+            Mark As Seen
+          </button>
         </div>
       ) : (
         <h2>Search for an animal</h2>
       )}
       <Select
+        id='quest_search'
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={options}

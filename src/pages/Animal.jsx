@@ -47,17 +47,21 @@ const Animal = () => {
         <div>
           <h2>{animalFacts.name}</h2>
           <p>
-            Scientific Name: {animalFacts.taxonomy?.scientific_name || 'N/A'}
+            <strong>Scientific Name:</strong>{' '}
+            {animalFacts.taxonomy?.scientific_name || 'N/A'}
           </p>
           <p>
-            Most Distinctive Feature:{' '}
+            <strong>Most Distinctive Feature: </strong>
             {animalFacts.characteristics?.most_distinctive_feature || 'N/A'}
           </p>
           <p>
-            Biggest Threat:{' '}
+            <strong>Biggest Threat: </strong>
             {animalFacts.characteristics?.biggest_threat || 'N/A'}
           </p>
-          <p>Locations: {animalFacts.locations?.join(', ') || 'N/A'}</p>
+          <p>
+            <strong>Locations: </strong>
+            {animalFacts.locations?.join(', ') || 'N/A'}
+          </p>
         </div>
       ) : (
         <div>No animal facts available</div>

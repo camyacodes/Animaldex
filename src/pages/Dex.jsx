@@ -48,17 +48,14 @@ const Dex = () => {
         a.name.toLowerCase().includes(searchValue.toLowerCase())
       )
 
-      // comment3
+  // comment3
   return (
     <div id='dex_page'>
-        <div>
-          <Link to={'../'}>
-            <ReturnHome />
-          </Link>
-        </div>
-        
+      <div id='nav_bar'>
+        <Link to={'../'}>
+          <ReturnHome />
+        </Link>
         <div id='search_bar'>
-          <label htmlFor='animal_searched'>Search:</label>
           <input
             type='text'
             id='name'
@@ -68,7 +65,8 @@ const Dex = () => {
             onChange={handleSearch}
           />
         </div>
-      
+      </div>
+
       <div className='dex_container'>
         {animalsToShow ? (
           animalsToShow.map((animal, index) => (

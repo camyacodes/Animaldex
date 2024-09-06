@@ -1,29 +1,22 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
 }
 
-body {
-  background-color: #0075be;
-  height: 100%;
-}
-
+/* Card container */
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
+/* Animal Image */
 .animal_image {
   height: 100px;
   width: auto;
   align-self: center;
 }
 
+/* Image container for dex */
 .image_container {
   display: flex;
   flex-direction: column;
@@ -31,19 +24,80 @@ body {
   margin-bottom: 5px;
 }
 
+/* Container for dex listings */
 .dex_container {
   display: flex;
   flex-wrap: wrap;
   padding-top: 20px;
 }
-a {
-  color: rgba(255, 255, 255, 0.87);
-  text-decoration: none;
-}
-a :hover {
-  color: #ffcb05 !important;
+
+/* Link hover effect */
+.dex_name_link:hover {
+  color: #ffcb05;
 }
 
+/* Button hover effect */
+button:hover {
+  color: white;
+}
+
+/* Dropdown menu text color */
 .css-1nmdiq5-menu {
   color: black;
+}
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Centered content for general layout */
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 30px;
+  min-height: 100vh;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .centered-content h1 {
+    font-size: 4em; /* Adjust for tablets */
+  }
+
+  .centered-content h2 {
+    font-size: 1.5em; /* Adjust for tablets */
+  }
+
+  .centered-content li {
+    font-size: 1.5em; /* Adjust for tablets */
+  }
+
+  .centered-content {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .centered-content h1 {
+    font-size: 3em; /* Adjust for mobile screens */
+  }
+
+  .centered-content h2 {
+    font-size: 1.5em; /* Adjust for mobile screens */
+  }
+
+  .centered-content li {
+    font-size: 1.2em; /* Adjust for mobile screens */
+  }
+
+  .centered-content {
+    padding-bottom: 10px;
+  }
 }

@@ -22,7 +22,7 @@ const Timer = ({ isTimerActive, time, setTime }) => {
 
   return (
     <div>
-      <h1>{formatTime()}</h1>
+      <h1 id='quest_timer'>{formatTime()}</h1>
     </div>
   )
 }
