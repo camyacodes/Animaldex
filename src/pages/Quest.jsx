@@ -79,7 +79,7 @@ const Quest = ({
       {selectedOption ? (
         <div>
           <h2>{selectedOption.label}</h2>
-          <img src={animalImage} style={{ height: '300px', width: 'auto' }} />
+          <img src={animalImage} style={{ height: 'auto', width: '75%' }} />
           <h3>
             {/* Scientific Name: {animalFacts.taxonomy?.scientific_name || 'N/A'} */}
           </h3>
