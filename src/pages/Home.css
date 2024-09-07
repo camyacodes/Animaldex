@@ -1,0 +1,9 @@
+.home_box {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item {
+  margin-bottom: 20px;
+}

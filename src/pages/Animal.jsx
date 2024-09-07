@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getAnimalImage, getAnimalFacts } from '../services/animals_api'
+import Button from 'react-bootstrap/Button'
 
 const Animal = () => {
   const { animal } = useParams()
@@ -41,11 +42,28 @@ const Animal = () => {
   if (error) return <div>Error: {error}</div>
   return (
     <div>
-      <Link to={'/dex'}>&larr; Back to Dex</Link>
-      <img src={image} alt={animalFacts.name} className='animal_image'></img>
+      <div>
+        <Link to={'/dex'}>
+          <Button style={{ marginTop: '30px' }}>Back to Dex</Button>
+        </Link>
+      </div>
+      <img
+        src={image}
+        alt={animalFacts.name}
+        className='animal_image'
+        style={{ height: 'auto', width: '50%' }}
+      ></img>
       {animalFacts ? (
-        <div>
-          <h2>{animalFacts.name}</h2>
+        <div style={{ paddingRight: '15px', paddingLeft: '15px' }}>
+          <h2
+            style={{
+              fontSize: '3em',
+              marginBottom: '0px',
+              textDecoration: 'underline',
+            }}
+          >
+            {animalFacts.name}
+          </h2>
           <p>
             <strong>Scientific Name:</strong>{' '}
             {animalFacts.taxonomy?.scientific_name || 'N/A'}
