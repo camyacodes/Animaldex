@@ -25,9 +25,9 @@ const Results = ({ time, seenList }) => {
     formatTime()
 
     const new_score = Math.round(
-      seenList.length * 40 + // Base score for animals seen
-        Object.keys(seenCount).length * 70 + // Bonus for unique animals seen
-        time * 0.75 // Increment score based on time
+      seenList.length * 60 + // Base score for animals seen
+        Object.keys(seenCount).length * 100 + // Bonus for unique animals seen
+        time * 1 // Increment score based on time
     )
 
     setScore(new_score)
