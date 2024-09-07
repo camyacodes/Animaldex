@@ -16,7 +16,7 @@ export const getAnimalFacts = async (animal) => {
     url: 'https://animals-by-api-ninjas.p.rapidapi.com/v1/animals',
     params: { name: animal },
     headers: {
-      'x-rapidapi-key': process.env.ANIMAL_API_KEY,
+      'x-rapidapi-key': import.meta.env.VITE_ANIMAL_API_KEY,
       'x-rapidapi-host': 'animals-by-api-ninjas.p.rapidapi.com',
     },
   }
@@ -30,7 +30,7 @@ export const getAnimalFacts = async (animal) => {
 }
 
 export const getAnimalImage = (file_name) => {
-  const image = process.env.S3_BASE_URL + file_name
+  const image = import.meta.env.VITE_S3_BASE_URL + file_name
   return image
 }
 
