@@ -5,7 +5,7 @@ export default defineConfig(() => {
   // const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    base: '/AnimalDex',
+    // base: '/AnimalDex',
     plugins: [react()],
     define: {
       // 'process.env.S3_BASE_URL': JSON.stringify(env.S3_BASE_URL),
