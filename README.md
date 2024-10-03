@@ -3,12 +3,11 @@
   <img src="./src/assets/animaldex_title.png" alt="AnimalDex Logo" width="60%" />
 </a>
 
-**CHECK IT OUT HERE:** [AnimalDex](https://camyacodes.github.io/Animaldex)
-
-## ***Winner of AnimalHack 2024 out of 200+ participants***
+# CHECK IT OUT HERE: [AnimalDex](https://camyacodes.github.io/Animaldex)
 
 ## Description
 **AnimalDex** is a real-life interpretation of a Pokédex, allowing users to discover and learn about dozens of real-life animals. From backyard creatures to animals spotted during nature hikes, users can explore what they look like and read fun facts to become animal experts. Additionally, the app offers a quest feature that challenges users to spot animals in real life, track their sightings, and earn points.
+### *** Winner of AnimalHack 2024 out of 200+ participants: https://devpost.com/software/animaldex ***
 
 ## User Story
 **AS** a nature enthusiast or someone who enjoys outdoor adventures,  
@@ -43,4 +42,4 @@
 ### Version Control:
 - **GitHub Pages:** Hosting and deploying the application.
 
-### *** Check out the live site here: https://camyacodes.github.io/Animaldex/ ***
+
