@@ -34,11 +34,11 @@ Submission post: https://devpost.com/software/animaldex
 
 ### API Integration:
 - **Axios:** Making HTTP requests to APIs.
-- **AWS S3:** Storing and managing files.
+- **AWS S3:** Storing and managing animal images.
 - **Animals by API-Ninjas:** Providing animal data for the application.
 
 ### Email Support:
-- **EmailJS:** Sending emails from the application.
+- **EmailJS:** Sending emails to users with their quest results.
 
 ### Version Control:
 - **GitHub Pages:** Hosting and deploying the application.
