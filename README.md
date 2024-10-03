@@ -7,7 +7,8 @@
 
 ## Description
 **AnimalDex** is a real-life interpretation of a Pokédex, allowing users to discover and learn about dozens of real-life animals. From backyard creatures to animals spotted during nature hikes, users can explore what they look like and read fun facts to become animal experts. Additionally, the app offers a quest feature that challenges users to spot animals in real life, track their sightings, and earn points.
-### *** Winner of AnimalHack 2024 out of 200+ participants: https://devpost.com/software/animaldex ***
+### *** Winner of AnimalHack 2024 out of 200+ participants ***
+Submission post: https://devpost.com/software/animaldex 
 
 ## User Story
 **AS** a nature enthusiast or someone who enjoys outdoor adventures,  
